@@ -1,25 +1,25 @@
 import type {Context} from "hono";
 import {createResponderSender} from "@/utils/response";
-import {CourseRepo} from "@/repositories/user/course.repo";
+import {CategoryRepo} from "@/repositories/category.repo";
 
 const CourseController =  {
     courseAll: async (c: Context) => {
         const response = createResponderSender(c)
 
-        const courses = await CourseRepo.getAllCourse()
+        const courses = await CategoryRepo.getAllCourse()
         return response(200, courses)
     },
 
     courseById: async (c: Context) => {
         const response = createResponderSender(c)
         const {slug} = c.req.param()
-        const course = await CourseRepo.getCourseBySlug(slug)
+        const course = await CategoryRepo.getCourseBySlug(slug)
 
         const {id}  = course
 
         if (!course) return response(400, {}, 'data tidak ditemukan')
 
-        const mentor =  await CourseRepo.getMentorById(id)
+        const mentor =  await CategoryRepo.getMentorById(id)
 
         course.mentors = mentor
 

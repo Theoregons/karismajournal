@@ -1,6 +1,6 @@
 import type {Context, Next} from 'hono'
 import {verify} from 'hono/jwt'
-import {UserRepo} from "@/repositories/user/user.repo";
+import {UserRepo} from "@/repositories/user.repo";
 import {RowDataPacket} from "mysql2";
 
 export const JwtMiddleware = async (c: Context, next: Next) => {

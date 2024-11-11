@@ -23,3 +23,7 @@ export interface IUserInput{
     email: string
     password?: string
 }
+
+export interface ICatInput{
+    name: string
+}

@@ -1,7 +1,7 @@
 import type {Context} from 'hono'
 import {  sign, verify} from 'hono/jwt'
 import bcrypt, {hash} from 'bcryptjs'
-import {AuthRepo} from "@/repositories/admin/auth.repo";
+import {AuthRepo} from "@/repositories/auth.repo";
 import {IUserInput} from "@/interfaces/auth.interface";
 import {createResponderSender} from "@/utils/response";
 import {ValidationError} from "@/utils/error-handling";
